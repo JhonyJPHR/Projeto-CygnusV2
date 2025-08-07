@@ -99,16 +99,21 @@ Este projeto foi desenvolvido e testado em um ambiente Windows com uma GPU NVIDI
 
 Para analisar um sinal, use o script do Arquiteto. Certifique-se de que os modelos `.keras` treinados estejam na pasta raiz.
 
-```bash
+
+
 # Exemplo analisando um sinal simulado de pulsar realista
+```bash
 python -m src.analysis.architect_analysis_2d data/sinal_realistic_pulsar_4096.txt
 ```
-📊 Resultados Notáveis
-Detecção de Estrutura: O sistema demonstrou consistentemente a capacidade de distinguir sinais com estrutura matemática (mesmo os ruidosos) de fenômenos naturais caóticos.
 
-Generalização: O modelo v8, treinado com dados realistas, superou os desafios de overfitting, provando sua capacidade de analisar sinais que não correspondem exatamente aos exemplos de treinamento.
+---
 
-Análise Profunda: A Fase 2 conseguiu identificar corretamente a ausência de um padrão oscilatório em sinais aperiódicos (como FRBs) e a presença de tendência nula em sinais estacionários.
+## 📊 Resultados Notáveis
+
+- **Detecção de Estrutura:** O sistema demonstrou consistentemente a capacidade de distinguir sinais com estrutura matemática...
+- **Generalização:** O modelo v8, treinado com dados realistas, superou os desafios...
+- **Análise Profunda:** A Fase 2 conseguiu identificar corretamente a ausência...
+
 
 
 Este projeto serve como uma poderosa prova de conceito para o uso de uma arquitetura de IA em camadas para a desafiadora tarefa de encontrar agulhas inteligentes em um palheiro cósmico.
@@ -116,5 +121,6 @@ Este projeto serve como uma poderosa prova de conceito para o uso de uma arquite
 <p align="center">
 Desenvolvido com 🧠 e ☕ por <a href="https://github.com/JhonyJPHR">JhonyJPHR</a>
 </p>
+
 
 
