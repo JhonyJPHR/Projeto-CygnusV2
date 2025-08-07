@@ -1,21 +1,43 @@
-# Ambiente Virtual
+# Arquivo: .gitignore
+
+# Ambientes Virtuais
 venv/
+venv_tf210/
 .venv/
+env/
+ENV/
 
 # Arquivos de Cache do Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
-# Arquivos gerados e dados grandes
-*.keras
-*.txt
-*.png
-*.csv
-*.fil
+# Arquivos de Cache de Testes e Ferramentas
+.pytest_cache/
+.tox/
+.coverage
+.cache
 
-# Exceção para o dataset original
-!data/HTRU_2.csv
+# Jupyter Notebooks
+.ipynb_checkpoints
 
-# Arquivos de configuração de IDEs
-.vscode/
+# Arquivos de IDEs
 .idea/
+.vscode/
+*.swp
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de Log e Banco de Dados
+*.log
+*.csv
+!results/cosmic_library.csv # Exceção: queremos manter este CSV específico
+
+# Modelos treinados e dados grandes (opcional, mas recomendado)
+# Modelos e dados podem ser muito grandes para o GitHub.
+# É melhor hospedá-los em outro lugar (como Google Drive) e explicar no README como baixá-los.
+# Por enquanto, vamos incluí-los, mas saiba que pode dar erro se forem maiores que 100MB.
+# /models/*.keras
+# /data/*.fil
