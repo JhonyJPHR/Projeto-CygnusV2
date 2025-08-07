@@ -1,8 +1,18 @@
-﻿# 🏛️ Projeto Cygnus v2: Arquiteto de Análise de Sinais
+<div align="center">
+
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/JhonyJPHR/Projeto-Cygnus/blob/main/cygnus_banner_dark.png">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/JhonyJPHR/Projeto-Cygnus/blob/main/cygnus_banner_light.png">
+<img alt="Banner do Projeto Cygnus" src="https://raw.githubusercontent.com/JhonyJPHR/Projeto-Cygnus/main/assets/cygnus_banner_light.png" width="900">
+</picture>
+
+
+# 🏛️ Projeto Cygnus v2: Arquiteto de Análise de Sinais
 
 **Cygnus Decipher é um pipeline de Inteligência Artificial de múltiplos estágios projetado para classificar e analisar sinais de rádio complexos, com foco na distinção entre fenômenos naturais e potenciais tecnoassinaturas artificiais.**
 
 Este projeto evoluiu de um analisador de sinais 1D para um sofisticado sistema 2D que utiliza Redes Neurais Convolucionais (CNNs), Redes Neurais Recorrentes (LSTMs) e Programação Genética (Regressão Simbólica) para fornecer uma análise profunda e em camadas de qualquer sinal de entrada.
+</div>
 
 ---
 
@@ -21,22 +31,38 @@ Este projeto evoluiu de um analisador de sinais 1D para um sofisticado sistema 2
 
 O fluxo de trabalho do Cygnus é dividido em módulos claros e eficientes:
 
-1.  **Geração de Dados:**
-    - Scripts em `src/generators/` treinam GANs para produzir espectrogramas de sinais artificiais (`Fibonacci`, `Pi`, `Euler`).
-    - Funções no `src/classifiers/` geram espectrogramas realistas de sinais naturais (`Pulsar`, `FRB`, `Solar Flare`), incluindo efeitos como dispersão.
+```mermaid
+graph TD;
+    subgraph "Etapa 1: Entrada de Dados"
+        A1["Sinal Real - fil ou txt"] --> B;
+        A2["Sinal Simulado - txt"] --> B;
+    end
 
-2.  **Treinamento do Cérebro:**
-    - O script `src/classifiers/train_classifier_definitive.py` reúne todos os dados gerados.
-    - Ele treina o modelo híbrido `universal_classifier_model_v8_definitive.keras`, usando técnicas de regularização como Dropout e EarlyStopping para evitar overfitting e garantir a generalização.
+    subgraph "Etapa 2: Pré-processamento"
+        B["1. Conversão e Padronização"] --> C["Sinal Binário 1D - 4096 amostras"];
+        C --> D["2. Geração de Espectrograma 2D"];
+    end
 
-3.  **Análise do Arquiteto:**
-    - O script `src/analysis/architect_analysis_2d.py` é o orquestrador final.
-    - Ele carrega um sinal de entrada (real ou simulado), o converte para um espectrograma e o passa pelo pipeline de análise de duas fases.
-    - Os resultados são impressos no console e registrados na Biblioteca Cósmica.
+    subgraph "Etapa 3: Arquiteto - Fase 1 (Classificação)"
+        D --> E["Classificador Híbrido v8"];
+        E --> F{"Veredito"};
+    end
 
-![Fluxograma da Arquitetura](https://i.imgur.com/link_para_um_diagrama_simples.png) 
-*(**Nota:** Você pode criar um diagrama simples em uma ferramenta como diagrams.net, fazer upload da imagem para um site como o Imgur e colocar o link aqui para deixar o README ainda mais visual.)*
+    F -- "> <b>Natural</b>" --> I["Registrar Classificação"];
+    F -- "> <b>Artificial</b>" --> G["Iniciar Análise Profunda"];
 
+    subgraph "Etapa 4: Arquiteto - Fase 2 (Investigação)"
+        G --> G1["Decodificar para Sequência Numérica"];
+        G1 --> G2["Análise Colaborativa - Trend e Rhythm"];
+        G2 --> H["Hipótese de Fórmula T x O"];
+    end
+    
+    H --> I;
+
+    subgraph "Etapa 5: Saída"
+        I --> J["Log na Biblioteca Cósmica - csv"];
+    end
+```
 ---
 
 ## 🛠️ Como Instalar e Executar
@@ -86,3 +112,9 @@ Análise Profunda: A Fase 2 conseguiu identificar corretamente a ausência de um
 
 
 Este projeto serve como uma poderosa prova de conceito para o uso de uma arquitetura de IA em camadas para a desafiadora tarefa de encontrar agulhas inteligentes em um palheiro cósmico.
+
+<p align="center">
+Desenvolvido com 🧠 e ☕ por <a href="https://github.com/JhonyJPHR">JhonyJPHR</a>
+</p>
+
+
